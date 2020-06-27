@@ -2,8 +2,8 @@
 
 
 // Set SVG wrapper dimensions
-var svgWidth = 900;
-var svgHeight = 700;
+var svgWidth = 1000;
+var svgHeight = 800;
 
 var margin = {
     top: 20,
@@ -65,35 +65,39 @@ d3.csv("data.csv").then(function(stateData){
         .data(stateData)
         .enter()
         .append("circle")
+        .attr("class", "stateCircle")
         .attr("cx", d => xScale(d.poverty))
         .attr("cy", d => yScale(d.obesity))
-        .attr("r", "10")
-        .attr("fill", "blue")
-        .attr("stroke-width", "1")
+        .attr("r", "15")
+        // .attr("fill", "blue")
+        // .attr("stroke-width", "1")
         .attr("opacity", "0.75")
-        .attr("stroke", "black");
+        // .attr("stroke", "black");
     
-    // var text = chartGroup.selectAll("text")
-    //     .data(stateData)
-    //     .enter()
-    //     .append("text");
+    // Create tooltip
+    // var toolTip = d3.tip()
+    //     .attr("class", "d3-tip")
+    //     .offset([0,10])
+    //     .html(function(d){
+    //         return(`<strong>${d.abbr}</strong>`);
+    //     })
+    // console.log(toolTip);
+    // chartGroup.call(toolTip);
+   
+    // circlesGroup.on("mouseover", function(d){
+    //     toolTip.show(d, this);
+    // })
     
-    // var textLabels = text
-    //     .attr("class","stateText")
-    //     .attr("text", d=> d.abbr)
-    //     .attr("font-size", "5px")
-    //     .attr("cx", d => xScale(d.poverty))
-    //     .attr("cy", d => yScale(d.obesity));
-    circlesGroup.selectAll("text")
+    var textGroup = chartGroup.selectAll("text")
         .data(stateData)
         .enter()
         .append("text")
-        .attr("class","stateText")
-        .attr("text", d => d.abbr)
-        .attr("font-size", "5px")
-        .attr("cx", d => xScale(d.poverty))
-        .attr("cy", d => yScale(d.obesity));
+        .text(d => d.abbr)
+        .attr("x", d => xScale(d.poverty))
+        .attr("y", d => yScale(d.obesity) + 5)
+        .attr("class", "stateText");
     
+
 
     // Set axis labels
     chartGroup.append("text")
