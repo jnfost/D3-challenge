@@ -114,7 +114,7 @@ d3.csv("data.csv").then(function(stateData){
     // .attr("text-anchor", "middle")
     .attr("font-size", "16px")
     .attr("fill", "blue")
-    .text("Obesity (%)");
+    .text("Obese (%)");
  
 
 }).catch(function(error){
