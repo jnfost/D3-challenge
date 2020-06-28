@@ -19,7 +19,7 @@
 }
 
 .inactive:hover {
-  fill: #000;
+  fill: red;
   cursor: pointer;
 }
 
@@ -69,7 +69,7 @@
   }
 }
 
-.active {
+/* .active {
   font-weight: bold;
   fill: #000;
   /* fill: green; */
@@ -86,4 +86,4 @@
 .inactive:hover {
   fill: red;
   cursor: pointer;
-}
+} */
