@@ -1,6 +1,6 @@
 // Set SVG wrapper dimensions
 var svgWidth = 1000;
-var svgHeight = 800;
+var svgHeight = 850;
 
 var margin = {
     top: 20,
@@ -119,10 +119,11 @@ function updateToolTip(chosenXAxis, chosenYAxis, circlesGroup) {
         .attr("class", "d3-tip")
         .offset([80, -60])
         .html(function(d) {
-            return (`${d.abbr}<br>${xLabel}: ${d[chosenXAxis]}<br>${yLabel}: ${d[chosenYAxis]}`);
+            return (`${d.state}<br>${xLabel}: ${d[chosenXAxis]}<br>${yLabel}: ${d[chosenYAxis]}`);
         });
 
     circlesGroup.call(toolTip);
+    // textGroup.call(ToolTip);
 
     circlesGroup.on("mouseover", function(data) {
         toolTip.show(data);
@@ -131,7 +132,15 @@ function updateToolTip(chosenXAxis, chosenYAxis, circlesGroup) {
             toolTip.hide(data);
         });
 
+    // textGroup.on("mouseover", function(data) {
+    //     toolTip.show(data);
+    // })
+    //     .on("mouseout", function(data) {
+    //         toolTip.hide(data);
+    //     });
+
     return circlesGroup;
+    // return textGroup;
 };
 
 // Get data from csv and execute all
