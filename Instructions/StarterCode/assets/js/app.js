@@ -74,19 +74,6 @@ d3.csv("data.csv").then(function(stateData){
         .attr("opacity", "0.75")
         // .attr("stroke", "black");
     
-    // Create tooltip
-    // var toolTip = d3.tip()
-    //     .attr("class", "d3-tip")
-    //     .offset([0,10])
-    //     .html(function(d){
-    //         return(`<strong>${d.abbr}</strong>`);
-    //     })
-    // console.log(toolTip);
-    // chartGroup.call(toolTip);
-   
-    // circlesGroup.on("mouseover", function(d){
-    //     toolTip.show(d, this);
-    // })
     
     var textGroup = chartGroup.selectAll("text")
         .data(stateData)

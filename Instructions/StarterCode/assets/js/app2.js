@@ -187,7 +187,7 @@ d3.csv("data.csv").then(function(stateData, err) {
         .attr("opacity", "0.75");
     
     // Append initial text
-    var textGroup = chartGroup.selectAll("text")
+    var textGroup = chartGroup.append("g").selectAll("text")
         .data(stateData)
         .enter()
         .append("text")
@@ -195,6 +195,18 @@ d3.csv("data.csv").then(function(stateData, err) {
         .attr("x", d => xLinearScale(d[chosenXAxis]))
         .attr("y", d => yLinearScale(d[chosenYAxis]) + 5)
         .attr("class", "stateText");
+   
+    // var textGroup = chartGroup.selectAll("text")
+    //     .data(stateData);
+
+    // textGroup.enter()
+    //     .append("text")
+    //     .text(d => d.abbr)
+    //     .attr("x", d => xLinearScale(d[chosenXAxis]))
+    //     .attr("y", d => yLinearScale(d[chosenYAxis]) + 5)
+    //     .attr("class", "stateText")
+    //     .merge(textGroup);
+
     
     // Create group for x axis labels
     var xLabelsGroup = chartGroup.append("g")
